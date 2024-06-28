@@ -17,22 +17,49 @@
             7. Make a function called playGame which will go through 5 rounds, track the score, and declare a winner using 
             a loop 
         */
-
+    
         const optionsArr = ["rock", " paper", " scissors"];
+        let humanScore = 0;
+        let computerScore = 0;
+
+
+        function getHumanChoice () {
+            let userChoice = prompt("Enter rock, paper, or scissors: ").toLowerCase();
+            return userChoice; 
+        }
 
         function getComputerChoice (array) {
             let randomIndex = Math.floor(Math.random() * optionsArr.length);
             return array [randomIndex];
         }
-        
-        console.log(getComputerChoice(optionsArr));
 
-        function getHumanChoice () {
-            let userChoice = prompt(optionsArr);
-            return userChoice; 
+        function playRound (humanChoice, computerChoice) {
+            if (humanChoice === computerChoice) {
+                return "The game is a tie!"
+            }
+            else if (humanChoice === "rock" && computerChoice === "paper"){
+                return "Paper beats rock! You lose this round."
+            } 
+            else if (humanChoice === "rock" && computerChoice === "scissors"){
+                return "Rock beats scissors! You win this round."
+            }
+            else if (humanChoice === "paper" && computerChoice === "rock"){
+                return "Paper beats rock! You win this round."
+            }
+            else if (humanChoice === "paper" && computerChoice === "scissors"){
+                return "Scissors beats paper! You lose this round."
+            }
+            else if (humanChoice === "scissors" && computerChoice === "rock"){
+                return "Rock beats scissors! You lose this round."
+            }
+            else if (humanChoice === "scissors" && computerChoice === "paper"){
+                return "Scissors beats paper! You win this round."
+            }
         }
 
-        console.log(getHumanChoice());
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice(optionsArr);
+        console.log(playRound(computerSelection, humanSelection));
 
     </script>
 </body>
