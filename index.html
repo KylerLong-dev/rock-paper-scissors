@@ -18,14 +18,14 @@
             a loop 
         */
 
-        const optionRock = "rock"
-        const optionPaper = "paper"
-        const optionScissors = "scissors"
-        const optionsArr = [optionRock, optionPaper, optionScissors]
+        const optionsArr = ["rock", "paper", "scissors"];
 
-        function computerChoice () {
-
+        function computerChoice (array) {
+            let randomIndex = Math.floor(Math.random() * optionsArr.length);
+            return array [randomIndex];
         }
+        
+        console.log(computerChoice(optionsArr));
 
         function humanChoice () {
 
