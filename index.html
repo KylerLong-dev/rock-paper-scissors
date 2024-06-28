@@ -30,15 +30,17 @@
 
         function getComputerChoice (array) {
             let randomIndex = Math.floor(Math.random() * optionsArr.length);
-            return array [randomIndex];
+            return array[randomIndex];
         }
+
+        //Logic needs to be revised, running erros with some scenarios in the console
 
         function playRound (humanChoice, computerChoice) {
             if (humanChoice === computerChoice) {
                 return "The game is a tie!"
             }
             else if (humanChoice === "rock" && computerChoice === "paper"){
-                return "Paper beats rock! You lose this round."
+                return "Paper beats rock. You lose this round."
             } 
             else if (humanChoice === "rock" && computerChoice === "scissors"){
                 return "Rock beats scissors! You win this round."
@@ -47,10 +49,10 @@
                 return "Paper beats rock! You win this round."
             }
             else if (humanChoice === "paper" && computerChoice === "scissors"){
-                return "Scissors beats paper! You lose this round."
+                return "Scissors beats paper. You lose this round."
             }
             else if (humanChoice === "scissors" && computerChoice === "rock"){
-                return "Rock beats scissors! You lose this round."
+                return "Rock beats scissors. You lose this round."
             }
             else if (humanChoice === "scissors" && computerChoice === "paper"){
                 return "Scissors beats paper! You win this round."
@@ -59,7 +61,9 @@
 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice(optionsArr);
-        console.log(playRound(computerSelection, humanSelection));
+        console.log("Human: " + humanSelection);
+        console.log("Computer: " + computerSelection);
+        console.log(playRound(humanSelection, computerSelection)); //error with playRound console logging in some scenarios
 
     </script>
 </body>
