@@ -65,13 +65,23 @@
 
         function playGame () {
             for (let i = 0; i < 5; i++) {
+                let roundNum = i + 1; 
                 const humanSelection = getHumanChoice();
                 const computerSelection = getComputerChoice(optionsArr);
-                console.log("Your Score: " + humanScore); 
-                console.log("Darth Vader's Score: " + computerScore);
+                console.log("Round number: " + roundNum);
                 console.log("Veronica: " + humanSelection);
                 console.log("Darth Vader: " + computerSelection);
                 console.log(playRound(humanSelection, computerSelection));
+                console.log("Current Score - Veronica: " + humanScore + ", Darth Vader: " + computerScore);
+            }
+            if (humanScore > computerScore) {
+                console.log("Congratulations! You won!");
+            }
+            else if (computerScore > humarnScore) {
+                console.log("Sorry, you lost. Try again!");
+            }
+            else {
+                console.log("It's a tie!");
             }
         }
 
