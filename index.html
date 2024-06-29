@@ -18,7 +18,7 @@
             a loop 
         */
     
-        const optionsArr = ["rock", " paper", " scissors"];
+        const optionsArr = ["rock", "paper", "scissors"];
         let humanScore = 0;
         let computerScore = 0;
 
@@ -33,37 +33,43 @@
             return array[randomIndex];
         }
 
-        //Logic needs to be revised, running erros with some scenarios in the console
-
         function playRound (humanChoice, computerChoice) {
             if (humanChoice === computerChoice) {
-                return "The game is a tie!"
+                return "The game is a tie! No change in score.";
             }
             else if (humanChoice === "rock" && computerChoice === "paper"){
-                return "Paper beats rock. You lose this round."
+                computerScore++;
+                return "Paper beats rock. You lose this round.";
             } 
             else if (humanChoice === "rock" && computerChoice === "scissors"){
-                return "Rock beats scissors! You win this round."
+                humanScore++;
+                return "Rock beats scissors! You win this round.";
             }
             else if (humanChoice === "paper" && computerChoice === "rock"){
-                return "Paper beats rock! You win this round."
+                humanScore++;
+                return "Paper beats rock! You win this round.";
             }
             else if (humanChoice === "paper" && computerChoice === "scissors"){
-                return "Scissors beats paper. You lose this round."
+                computerScore++;
+                return "Scissors beats paper. You lose this round.";
             }
             else if (humanChoice === "scissors" && computerChoice === "rock"){
-                return "Rock beats scissors. You lose this round."
+                computerScore++;
+                return "Rock beats scissors. You lose this round.";
             }
             else if (humanChoice === "scissors" && computerChoice === "paper"){
-                return "Scissors beats paper! You win this round."
+                humanScore++;
+                return "Scissors beats paper! You win this round.";
             }
         }
 
         const humanSelection = getHumanChoice();
         const computerSelection = getComputerChoice(optionsArr);
-        console.log("Human: " + humanSelection);
-        console.log("Computer: " + computerSelection);
-        console.log(playRound(humanSelection, computerSelection)); //error with playRound console logging in some scenarios
+        console.log("Your Score: " + humanScore); 
+        console.log("Darth Vader's Score: " + computerScore);
+        console.log("Veronica: " + humanSelection);
+        console.log("Darth Vader: " + computerSelection);
+        console.log(playRound(humanSelection, computerSelection));
 
     </script>
 </body>
