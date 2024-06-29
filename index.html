@@ -24,7 +24,7 @@
 
 
         function getHumanChoice () {
-            let userChoice = prompt("Enter rock, paper, or scissors: ").toLowerCase();
+            let userChoice = prompt("Enter rock, paper, or scissors: ");
             return userChoice; 
         }
 
@@ -63,13 +63,20 @@
             }
         }
 
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice(optionsArr);
-        console.log("Your Score: " + humanScore); 
-        console.log("Darth Vader's Score: " + computerScore);
-        console.log("Veronica: " + humanSelection);
-        console.log("Darth Vader: " + computerSelection);
-        console.log(playRound(humanSelection, computerSelection));
+        function playGame () {
+            for (let i = 0; i < 5; i++) {
+                const humanSelection = getHumanChoice();
+                const computerSelection = getComputerChoice(optionsArr);
+                console.log("Your Score: " + humanScore); 
+                console.log("Darth Vader's Score: " + computerScore);
+                console.log("Veronica: " + humanSelection);
+                console.log("Darth Vader: " + computerSelection);
+                console.log(playRound(humanSelection, computerSelection));
+            }
+        }
+
+        playGame();
+
 
     </script>
 </body>
