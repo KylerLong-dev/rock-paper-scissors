@@ -3,26 +3,11 @@
         let humanScore = 0;
         let computerScore = 0;
 
-        const btnR = document.querySelector(".rock");
-        const btnP = document.querySelector(".paper");
-        const btnS = document.querySelector(".scissors");
-        const results = document.querySelector(".result"); 
-        const score = document.querySelector(".score");
+        function getHumanChoice () {
+            let userChoice = btn.className;
+            return userChoice;
+        }
 
-        btnR.addEventListener("click", playRound);
-        btnP.addEventListener("click", playRound);
-        btnS.addEventListener("click", playRound);
-/*
-        buttons.forEach((button) => {
-            button.addEventListener("click", () => {
-                const humanChoice = button.className; 
-                const computerChoice = getComputerChoice(optionsArr);
-                const result = playRound(humanChoice, computerChoice); 
-                results.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}.`;
-                score.textContent = `Current Score - You: ${humanScore}, Computer: ${computerScore}`;
-            });        
-        })
-*/
         function getComputerChoice (array) {
             let randomIndex = Math.floor(Math.random() * optionsArr.length);
             return array[randomIndex];
@@ -57,3 +42,37 @@
                 return results.textContent = "Scissors beats paper! You win this round.";
             }
         }
+
+        const btn = document.querySelector("button");
+        const btnR = document.querySelector(".rock");
+        const btnP = document.querySelector(".paper");
+        const btnS = document.querySelector(".scissors");
+        const results = document.querySelector(".result"); 
+        const score = document.querySelector(".score");
+
+        btnR.addEventListener("click", playRound);
+        btnP.addEventListener("click", playRound);
+        btnS.addEventListener("click", playRound);
+
+        function playGame () {
+            const humanSelection = getHumanChoice();
+            const computerSelection = getComputerChoice(optionsArr);
+            results.textContent = "You: " + humanSelection;
+            results.textContent = "Computer: " + computerSelection;
+            results.textContent = playRound(humanSelection, computerSelection);
+            score.textContent = "Current Score - You: " + humanScore + ", Computer: " + computerScore;
+        }
+
+        playGame();
+/*
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                const humanChoice = button.className; 
+                const computerChoice = getComputerChoice(optionsArr);
+                const result = playRound(humanChoice, computerChoice); 
+                results.textContent = `You chose ${humanChoice}. Computer chose ${computerChoice}.`;
+                score.textContent = `Current Score - You: ${humanScore}, Computer: ${computerScore}`;
+            });        
+        })
+*/
+        
