@@ -13,8 +13,17 @@ const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
 
+
 function getHumanChoice () {
-    
+    if (buttonRock) {
+        buttonRock.addEventListener("click", () => playRound("rock"));
+    }
+    if (buttonPaper) {
+        buttonPaper.addEventListener("click", () => playRound("paper"));
+    }
+    if (buttonScissors) {
+        buttonScissors.addEventListener("click", () => playRound("scissors"));
+    }
 }
 
 function getComputerChoice (array) {
