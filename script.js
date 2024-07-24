@@ -1,9 +1,8 @@
 //Determine what each section of code does before starting to refactor 
 //Store button elements in a variable
 //Store results div in a variable to then add result textContent to
-//Add eventListeners to each button that call the playRound function
-//refactor getHumanChoice function to include userSelection variable that stores button choice from the user
-//
+//Add eventListeners to each button that calls the playRound function
+//refactor getHumanChoice function
 
 const optionsArr = ["rock", "paper", "scissors"];
 let humanScore = 0;
@@ -12,19 +11,15 @@ let computerScore = 0;
 const buttonRock = document.querySelector("#rock");
 const buttonPaper = document.querySelector("#paper");
 const buttonScissors = document.querySelector("#scissors");
-
+const roundResult = document.querySelector("#result");
+const scoreDisplay = document.querySelector("#score");
+const resetContainer = document.querySelector("#reset-container");
 
 function getHumanChoice () {
-    if (buttonRock) {
-        buttonRock.addEventListener("click", () => playRound("rock"));
+        buttonRock.addEventListener("click", () => playGame("rock"));
+        buttonPaper.addEventListener("click", () => playGame("paper"));
+        buttonScissors.addEventListener("click", () => playGame("scissors"));
     }
-    if (buttonPaper) {
-        buttonPaper.addEventListener("click", () => playRound("paper"));
-    }
-    if (buttonScissors) {
-        buttonScissors.addEventListener("click", () => playRound("scissors"));
-    }
-}
 
 function getComputerChoice (array) {
     let randomIndex = Math.floor(Math.random() * optionsArr.length);
@@ -61,23 +56,34 @@ function playRound (humanChoice, computerChoice) {
     }
 }
 
-function playGame () {
-    for (let i = 0; i < 5; i++) {
-        let roundNum = i + 1; 
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice(optionsArr);
-        console.log("Round number: " + roundNum);
-        console.log("You: " + humanSelection);
-        console.log("Darth Vader: " + computerSelection);
-        console.log(playRound(humanSelection, computerSelection));
-        console.log("Current Score - You: " + humanScore + ", Darth Vader: " + computerScore);
+function playGame (humanChoice) {
+    const computerSelection = getComputerChoice(optionsArr);
+    let result = playRound(humanChoice, computerSelection);
+    roundResult.textContent = result; 
+    scoreDisplay.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    if (humanScore === 3) {
+        scoreDisplay.textContent = "Congratulations! You won the game!";
+        createResetButton();
     }
-    if (humanScore > computerScore) {
-        console.log("Congratulations! You won!");
-    }
-    else if (computerScore > humanScore) {
-        console.log("Sorry, you lost. Try again!");
+    else if (computerScore === 3) {
+        scoreDisplay.textContent = "The computer got you this time, try again!"
+        createResetButton();
     }
 }
 
-playGame();
+function createResetButton () {
+    const resetButton = document.createElement("button");
+    resetButton.textContent = "Restart Game";
+    resetButton.addEventListener("click", restartGame);
+    resetContainer.appendChild(resetButton);
+}
+
+function restartGame() {
+    humanScore = 0;
+    computerScore = 0;
+    roundResult.textContent = "";
+    scoreDisplay.textContent = `Player: ${humanScore} Computer: ${computerScore}`;
+    resetContainer.innerHTML = "";
+}
+
+getHumanChoice();
