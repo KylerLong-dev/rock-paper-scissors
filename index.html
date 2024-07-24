@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
     <title>Rock, Paper, Scissors</title>
 </head>
 <body>
     <div class="game-container">
 
-        <header>Let's Play: Rock, Paper, Scissors.</header>
+        <header id="header-container">
+            <h1>Let's Play: Rock, Paper, Scissors!</h1>
+        </header>
 
         <div id="buttons-container">
             <button id="rock">Rock</button>
@@ -18,12 +21,12 @@
         </div>
 
         <div id="results">
-            <p id="result"></p>
             <p id="score">Your Score: 0, Computer Score: 0</p>
+            <p id="result"></p>
         </div>
 
         <div id="reset-container"></div>
-
+        
     </div>
 </body>
 </html>

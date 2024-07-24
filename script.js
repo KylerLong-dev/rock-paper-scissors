@@ -1,8 +1,5 @@
-//Determine what each section of code does before starting to refactor 
-//Store button elements in a variable
-//Store results div in a variable to then add result textContent to
-//Add eventListeners to each button that calls the playRound function
-//refactor getHumanChoice function
+//include display of what the user and computer chose after each round
+//include this edit roundResult.text content in playGame function
 
 const optionsArr = ["rock", "paper", "scissors"];
 let humanScore = 0;
