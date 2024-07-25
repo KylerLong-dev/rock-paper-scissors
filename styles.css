@@ -7,9 +7,9 @@
 
 body {
     box-sizing: border-box;
-    background-color: rgb(6, 6, 79);
+    background-color: hsl(212, 90%, 72%);
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: goldenrod; 
+    color: #1e1704; 
     font-weight: bold;
 }
 
@@ -34,19 +34,21 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    max-height: 120px;
+    gap: 60px;
+    max-height: 150px;
 }
 
-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-    max-height: 50px;
-    min-width: 100px;
-    border-radius: 2px;
+img {
     cursor: pointer;
+    min-width: 145px;
+}
+
+img:hover {
+    background-color: rgb(69, 137, 179)
+}
+
+img:active {
+    background-color: rgba(255, 255, 255, 0.788);
 }
 
 #results {
@@ -66,5 +68,23 @@ button {
 #reset-container {
     display: flex;
     justify-content: center;
+}
+
+button {
+    color: black;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    max-height: 50px;
+    min-width: 100px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: rgb(78, 78, 78);
+    color: rgba(255, 255, 255, 0.957);
 }
 

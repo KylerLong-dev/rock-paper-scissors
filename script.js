@@ -13,7 +13,7 @@ const scoreDisplay = document.querySelector("#score");
 const resetContainer = document.querySelector("#reset-container");
 
 function getHumanChoice () {
-        buttonRock.addEventListener("click", () => playGame("rock"));
+        buttonRock.addEventListener("click", () => playGame("rock"));   
         buttonPaper.addEventListener("click", () => playGame("paper"));
         buttonScissors.addEventListener("click", () => playGame("scissors"));
     }
